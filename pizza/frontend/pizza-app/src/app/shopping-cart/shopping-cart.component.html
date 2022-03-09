@@ -1,0 +1,21 @@
+<h1>In Cart</h1>
+<div class="container">
+    <form [formGroup]="productForm" name="Form">
+        <table class="table">
+            <tr *ngFor="let item of cart; let i = index">
+                <td>{{item.name}}</td>
+                <td *ngIf="isValid(qnt[i])">{{item.total_price * qnt[i] |currency:"GBP"}}</td>
+                <td *ngIf="!isValid(qnt[i])">Invalid number!</td>
+                <td>
+                    <input [(ngModel)]="qnt[i]" formControlName="quant" type="number" placeholder="0" min="1" max="10" value="1" id="qnt[i]" [name]="qnt[i]" [value]="1" required>
+                </td>
+                <td><button (click)="removeFromList(i)">Remove</button></td>
+            </tr>
+            <tr>
+                <td *ngIf="!isValid(getTotal())">Total: {{getTotal() |currency:"GBP"}}</td>
+            </tr>
+        </table>
+    </form>
+</div><br>
+<button [routerLink]="['/getProduct']">Back to pizzas</button>
+<button type="submit" (click)="checkout(cart, qnt)" [routerLink]="['/checkout']">Checkout</button>

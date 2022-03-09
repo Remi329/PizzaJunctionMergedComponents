@@ -1,0 +1,85 @@
+<!--<h1 mat-dialog-title>Add Product Form</h1>
+<div mat dialog-content>
+    <mat-form-field appearance="standard">
+        <mat-label>Product Name</mat-label>
+        <input matInput placeholder="Product Name">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Product Category</mat-label>
+        <mat-select placeholder="Category">
+            <mat-option value="">VEG PIZZA</mat-option>
+            <mat-option value="">NON-VEG PIZZA</mat-option>
+        </mat-select>
+        </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Price</mat-label>
+                <input matInput type="number" placeholder="Product Price">
+              </mat-form-field>
+        </div>
+    -->
+    <h1 mat-dialog-title>Add Product Form</h1>
+
+    
+
+       <div mat dialog-content>
+         <mat-toolbar-row>
+           <form [formGroup]="productForm">
+
+
+            <mat-form-field style="margin-right: 8px;" appearance="standard">
+                <mat-label>Product Name</mat-label>
+                <input formControlName="name" matInput placeholder="Product Name">
+              </mat-form-field>
+              
+            <!--  <mat-form-field style="margin-right: 8px;" appearance="standard">
+                <mat-label>Product Category</mat-label>
+                <input formControlName="productCategory" matInput placeholder="Product Category">
+              </mat-form-field> -->
+      
+               <!-- <mat-form-field style="margin-right: 8px;" appearance="standard">
+                  <mat-label>Choose a date</mat-label>
+                  <input formControlName="date" matInput [matDatepicker]="picker">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field> -->
+      
+              <mat-form-field style="margin-right: 8px;" appearance="standard">
+                  <mat-label>Total Price</mat-label>
+                  <input formControlName="total_price" matInput type="number" placeholder="Product Price">
+                </mat-form-field>
+
+                <mat-form-field style="margin-right: 8px;" appearance="standard">
+                  <mat-label>Image</mat-label>
+                  <input formControlName="image_url" matInput placeholder="Image">
+                </mat-form-field>
+              
+
+              <mat-form-field style="margin-right: 8px;" appearance="standard">
+                <mat-label>Topping ID</mat-label>
+                <input formControlName="topping_id" matInput placeholder="Topping ID">
+              </mat-form-field>
+          </form>
+            <button style="margin-right: 8px;" mat-raised-button  color="primary" (click)="addProduct()" mat-dialog-add>ADD</button>
+           <!-- <button style="margin-right: 8px;" mat-raised-button  color="primary" mat-dialog-update>Update</button>
+            <button style="margin-right: 8px;" mat-raised-button  color="primary" mat-dialog-remove>Remove</button> -->
+    
+          </mat-toolbar-row>
+          
+          </div>
+
+
+    
+
+            
+ 
+  
+  

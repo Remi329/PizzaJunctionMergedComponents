@@ -2,7 +2,7 @@ const express = require('express');
 //const { request } = require('http');
 const db = require('../db/connection')
 const router = express.Router();
-console.log("auth route");
+console.log("pizza route");
 router.use(express.json());
 
 db.connect()
@@ -17,16 +17,37 @@ router.get('/pizza', (req, res) => {
   //var total_price = req.query['total_price'];
   //var image_url = req.query['image_url'];
   //console.log("name: "+ name +" total price: "+ total_price +" Img: "+image_url);
-  //const pool  = new Pool(config);
+  const connection = db;
   sql = `select * from product_table;`;
 
-  db.on('error',function(err,client){
-    console.log("error with connection",err);
+  connection.on('error',function(error,client){
+    console.log("error with connection",error);
   });
 
-  db.query(sql,(err,data) =>{
+  connection.query(sql,(error,data) =>{
     let result = {};
-    if (err){return console.error('error detected !!',err,sql);}
+    if (error){return console.error('error detected !!',error,sql);}
+    //console.log('pizzas:', data.rows);
+    result['status'] = data.rows;
+    res.send(result)
+  });
+});
+
+router.get('/pizza/:id', (req, res) => {
+  //var name = req.query['name'];
+  //var total_price = req.query['total_price'];
+  //var image_url = req.query['image_url'];
+  //console.log("name: "+ name +" total price: "+ total_price +" Img: "+image_url);
+  const connection = db;
+  sql = `select * from product_table where id=${req.params.id}`;
+
+  connection.on('error',function(error,client){
+    console.log("error with connection",error);
+  });
+
+  connection.query(sql,(error,data) =>{
+    let result = {};
+    if (error){return console.error('error detected !!',error,sql);}
     //console.log('pizzas:', data.rows);
     result['status'] = data.rows;
     res.send(result)
@@ -40,7 +61,8 @@ router.post("/pizza", (req, res) => {
   const connection = db;
   //const statement = `select * from users where email ='${email}' and password='${password}'`
   //res.json({message: 'Welcome to POST method from router'});
-  connection.query("SELECT * from product_table where name=$1 and total_price=$2 and image_url=$3 and topping_id=$4", [name, total_price, image_url, topping_id], (error, data) => {
+  connection.query(`INSERT INTO product_table (name, total_price, image_url, topping_id) VALUES 
+  (${name}, ${total_price} ${image_url} ${topping_id})`, (error, data) => {
       const result = {};
       if (error) {
           throw error;

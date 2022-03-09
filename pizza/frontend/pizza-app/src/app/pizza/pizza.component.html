@@ -1,0 +1,56 @@
+<h1>Pizza search</h1>
+   
+        <div class="form-group">
+            <label for="searchedPizzaName">Search Term</label>
+            <input type="text" class="form-control" placeholder="Search Pizzas"
+            [(ngModel)]= "filterTerm">
+        </div>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Pizza Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--Removing class="Pagination " maeks it a normalformat -->
+                <tr *ngFor="let pizza of pizzaArray.status | filter: filterTerm">
+                    
+                    <td>{{pizza.name}}</td>
+                    <td>{{pizza.total_price |currency:"GBP"}}</td>
+                </tr>
+        
+            </tbody>
+<div> 
+    <br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Pizza Id</th>
+            <th>Pizza Name</th>
+            <th>Price</th>            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pizza of pizzaArray.status | paginate
+              : {
+                  itemsPerPage: tableSize,
+                  currentPage: page,
+                  totalItems: count
+                };
+          let i = index">
+        <td scope="row">
+            {{ pizza.id }}</td>
+            <td ><a [routerLink]="['/pizza','name',pizza.productname]"> {{ pizza.name }} </a>
+          </td>
+            <td>{{pizza.total_price |currency:"GBP"}}</td>
+        </tr> 
+    
+    </tbody>
+    
+</table>
+
+    <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onDataChange($event)">
+    </pagination-controls>
+
+</div>

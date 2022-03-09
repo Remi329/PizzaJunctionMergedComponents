@@ -5,6 +5,9 @@ const bodyParser = require("body-parser");
 
 const authRoute = require("./routes/auth");
 const productRoute = require("./routes/pizza");
+const orderRoute = require("./routes/order");
+const filterRoute = require("./routes/filter");
+const discountRoute = require("./routes/product");
 
 // creating Web server
 const app = express();
@@ -35,6 +38,9 @@ app.use(express.json());
 // middleware - use()
 app.use("/api/v1/auth/", authRoute);
 app.use("/api/v1/pizzas", productRoute);
+app.use("/api/v1/orders", orderRoute);
+app.use("/api/v1/filter", filterRoute);
+app.use("/api/v1/product", discountRoute);
 
 app.listen(3000, () => {
   console.log("server started...");

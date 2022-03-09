@@ -1,3 +1,4 @@
+import { ShoppingCartService } from '../services/shopping-cart.service';
 import { Component, OnInit } from '@angular/core';
 
 import { Pizza } from "./pizza.model";
@@ -10,38 +11,29 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./pizzas.component.css']
 })
 export class PizzasComponent implements OnInit {
-
-  pizzas: Pizza[] = [];
+  pizzas: any = [];
+  cart: any = [];
   private pizzaSub: Subscription;
 
   pizzaService: PizzaService;
-  constructor(service: PizzaService) { 
+  cartService: ShoppingCartService;
+  constructor(private service: PizzaService, private cService:ShoppingCartService) { 
     this.pizzaService = service;
+    this.cartService = cService;
   }
-  /*pizzas: any = [
-    {
-      id: 1,
-      name: "meat",
-      toppings: ["pepperoni","chicken"]
-    },
-    {
-      id: 2,
-      name: "vegitarian",
-      toppings: ["sweetcorn"]
-    },
-    {
-      id: 3,
-      name: "hawian",
-      toppings: ["pineapple", "ham"]
-    }
-  ]*/
 
   ngOnInit(): void {
-    this.pizzaService.getPizzas();
+    this.service.getPizzas().subscribe((responce)=>{
+      this.pizzas = responce;
+    });
     this.pizzaSub = this.pizzaService.getPizzaUpdateListener()
-      .subscribe((pizzas: Pizza[]) => {
-        this.pizzas = pizzas;
+      .subscribe((responce: any) => {
+        this.pizzas = responce;
       });
   }
 
+  addToCart(product: Pizza) {
+    //console.log(product, qnt)
+    this.cService.addItem(product);
+  }
 }

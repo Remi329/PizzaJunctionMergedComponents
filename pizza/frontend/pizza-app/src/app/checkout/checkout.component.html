@@ -1,0 +1,12 @@
+<h1>Checkout</h1>
+<h3>Thank you for your purchase!!!</h3>
+<div class="card" *ngFor="let x of order.status; let i = index">
+    <div class="card-title bg-light">{{x.id}} - {{x.name}}: X{{x.quantity}} - £{{x.total_price * x.quantity}} - {{x.order_date | date:'short'}}</div>
+    <div class="card-body bg-primary">
+        <!--<img src={{image_url}} alt="">-->
+        <p class="card-text"></p>
+    </div>    
+</div>
+<!--<div >Total: {{total | json}}</div>-->
+<button [routerLink]="['/cart']">Make another purchase</button>
+<app-ratingpage></app-ratingpage>

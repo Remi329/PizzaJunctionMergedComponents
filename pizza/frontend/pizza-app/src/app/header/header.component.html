@@ -1,0 +1,44 @@
+<!--app.component.html-->
+<!-- <app-nav></app-nav> -->
+<!-- <app-pizzasearch></app-pizzasearch>
+<app-productlist></app-productlist>
+<app-pizza></app-pizza> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" [routerLink]="['/login']">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/getProduct']">ViewPizzas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/dialog']">Add Pizza</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/discount']">Add Discount</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/search']">Search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/cart']"><i class="fa fa-shopping-basket">{{cart.length}}</i></a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

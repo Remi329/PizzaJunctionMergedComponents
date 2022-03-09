@@ -29,7 +29,7 @@ router.post("/pizza", (req, res) => {
     const connection = db;
     //const statement = `select * from users where email ='${email}' and password='${password}'`
     //res.json({message: 'Welcome to POST method from router'});
-    connection.query("SELECT * from product_table where name=$1 and total_price=$2 and image_url=$3 and topping_id=$4", [name, total_price, image_url, topping_id], (error, data) => {
+    connection.query(`INSERT INTO product_table(name, total_price, image_url, topping_id) VALUES ('${name}', '${total_price}', '${image_url}', '${topping_id}')`, (error, data) => {
         const result = {};
         if (error) {
             throw error;

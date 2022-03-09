@@ -1,0 +1,131 @@
+
+<h1 mat-dialog-title>Add Discount Form</h1>
+
+    
+
+       <div mat dialog-content>
+         <mat-toolbar-row>
+           <form [formGroup]="discountForm">
+
+            <mat-form-field style="margin-right: 8px;" appearance="standard">
+              <mat-label>Discount Category</mat-label>
+              <input formControlName="discount_category" matInput placeholder="Discount Category">
+            </mat-form-field>
+
+            <mat-form-field style="margin-right: 8px;" appearance="standard">
+              <mat-label>Start Date</mat-label>
+              <input formControlName="start_date" matInput placeholder="Start Date">
+            </mat-form-field>
+              
+              <mat-form-field style="margin-right: 8px;" appearance="standard">
+                <mat-label>Start Time</mat-label>
+                <input formControlName="start_time" matInput placeholder="Start Time">
+              </mat-form-field>
+      
+               <!-- <mat-form-field style="margin-right: 8px;" appearance="standard">
+                  <mat-label>Choose a date</mat-label>
+                  <input formControlName="date" matInput [matDatepicker]="picker">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field> -->
+      
+              <mat-form-field style="margin-right: 8px;" appearance="standard">
+                <mat-label>End Date</mat-label>
+                <input formControlName="end_date" matInput placeholder="End Date">
+              </mat-form-field>
+
+                <mat-form-field style="margin-right: 8px;" appearance="standard">
+                  <mat-label>End Time</mat-label>
+                  <input formControlName="end_time" matInput placeholder="End Time">
+                </mat-form-field>
+
+                <mat-form-field style="margin-right: 8px;" appearance="standard">
+                  <mat-label>Discount Percent</mat-label>
+                  <input formControlName="discount_percent" matInput placeholder="Discount Percent">
+                </mat-form-field>
+
+                <mat-form-field style="margin-right: 8px;" appearance="standard">
+                  <mat-label>Status</mat-label>
+                  <input formControlName="status" matInput placeholder="Status">
+                </mat-form-field>
+              </form>
+              
+
+           
+     
+            
+              <button style="margin-right: 8px;" mat-raised-button  color="primary" (click)="addDiscount()" mat-dialog-add>ADD</button>
+         <!--  <button style="margin-right: 8px;" mat-raised-button  color="primary"   (click)="getAllDetails()"mat-dialog-update>View</button>
+           <button style="margin-right: 8px;" mat-raised-button  color="primary" mat-dialog-remove>Remove</button> 
+           <button (click)="navigate()">View</button>-->
+          </mat-toolbar-row>
+
+
+          
+          <div class="container">
+            <div style="margin-top: 10px;">
+              <mat-form-field appearance="standard">
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+              </mat-form-field>
+              
+              <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource" matSort>
+              
+                  <!-- ID Column -->
+                  <ng-container matColumnDef="discount_category">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Discount_Category </th>
+                    <td mat-cell *matCellDef="let row"> {{row.discount_category}} </td>
+                  </ng-container>
+              
+                  <!-- Progress Column -->
+                  <ng-container matColumnDef="start_date">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </th>
+                    <td mat-cell *matCellDef="let row"> {{row.start_date}} </td>
+                  </ng-container>
+              
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="start_time">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Start Time </th>
+                    <td mat-cell *matCellDef="let row"> {{row.start_time}} </td>
+                  </ng-container>
+
+                  <!-- Fruit Column -->
+                  <ng-container matColumnDef="end_date">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> End Date </th>
+                    <td mat-cell *matCellDef="let row"> {{row.end_date}} </td>
+                  </ng-container>
+              
+                  <!-- Fruit Column -->
+                  <ng-container matColumnDef="end_time">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> End Time </th>
+                    <td mat-cell *matCellDef="let row"> {{row.end_time }} </td>
+                  </ng-container>
+
+                  
+
+                  <ng-container matColumnDef="discount_percent">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Discount Percent </th>
+                    <td mat-cell *matCellDef="let row"> {{row.discount_percent}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                    <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+                  </ng-container>
+              
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              
+                  <!-- Row shown when there is no matching data. -->
+                  <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                  </tr>
+                </table>
+              
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+              </div>
+            </div>
+          </div>
+          </div>
+
