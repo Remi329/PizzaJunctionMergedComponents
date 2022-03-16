@@ -16,7 +16,7 @@
                 <!--Removing class="Pagination " maeks it a normalformat -->
                 <tr *ngFor="let pizza of pizzaArray.status | filter: filterTerm">
                     
-                    <td>{{pizza.name}}</td>
+                    <td>{{pizza.product_name}}</td>
                     <td>{{pizza.total_price |currency:"GBP"}}</td>
                 </tr>
         
@@ -40,8 +40,8 @@
                 };
           let i = index">
         <td scope="row">
-            {{ pizza.id }}</td>
-            <td ><a [routerLink]="['/pizza','name',pizza.productname]"> {{ pizza.name }} </a>
+            {{ pizza.product_id }}</td>
+            <td ><a [routerLink]="['/pizza','name',pizza.productname]"> {{ pizza.product_name }} </a>
           </td>
             <td>{{pizza.total_price |currency:"GBP"}}</td>
         </tr> 

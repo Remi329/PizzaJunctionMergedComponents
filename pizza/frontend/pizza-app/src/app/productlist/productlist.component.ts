@@ -13,6 +13,7 @@ export class ProductlistComponent implements OnInit {
     cartService: ShoppingCartService;
     products: any;
     pizzaArray: any = [];
+    pizzaPriceArray : any = [];
   constructor(private service: PostService, private cService: ShoppingCartService) {
       // let products: Pizza[] = [];
     this.pizzaService = service;
@@ -27,10 +28,15 @@ export class ProductlistComponent implements OnInit {
     this.service.getPizzas().subscribe((response) => {
         this.pizzaArray = response;
       });
+
+      this.service.getDiscountedPizzaPrice().subscribe((response) => {
+        this.pizzaPriceArray = response;
+      });
   }
 
   addToCart(product: Pizza) {
     //console.log(product, qnt)
     this.cartService.addItem(product);
   }
+  
 }

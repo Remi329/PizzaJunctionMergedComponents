@@ -13,7 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./discount.component.css']
 })
 export class DiscountComponent implements OnInit {
-  displayedColumns: string[] = ['discount_category', 'start_date', 'start_time', 'end_date','end_time','discount_percent','status'];
+  displayedColumns: string[] = ['discount_category', 'start_date', 'start_time', 'end_date','end_time','discount_percent','product_id','status'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator)
@@ -43,15 +43,33 @@ export class DiscountComponent implements OnInit {
       end_date: ['', Validators.required],
       end_time : ['', Validators.required],
       discount_percent :  ['', Validators.required],
+      product_id:['', Validators.required],
       status :  ['', Validators.required]
     })
   
   }
     addDiscount(){
     if(this.discountForm.valid){
+      console.log(this.discountForm.value);
       this.api.postDiscount(this.discountForm.value)
       .subscribe(res=> {
           alert("Discount Added Succesfully");
+          this.discountForm.reset();
+        },
+        (error)=>{
+          alert("error while adding the Discount")
+
+        })
+      }
+  }
+  
+//new
+  applyDiscount(){    
+    if(this.discountForm.valid){
+      console.log(this.discountForm.value);
+      this.api.postApplyDiscount(this.discountForm.value)
+      .subscribe(res=> {
+          alert("Discount Added to Product Succesfully");
           this.discountForm.reset();
         },
         (error)=>{
@@ -79,6 +97,7 @@ export class DiscountComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  
 }
 
 

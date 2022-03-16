@@ -1,104 +1,149 @@
-<div class="row" *ngFor="let pizza of pizzaArray.status">
-    <div *ngIf="pizza.id ===1" class="col-sm-5">
+<div class="row" *ngFor="let pizza of pizzaPriceArray.status">
+    <div *ngIf="pizza.product_id ===1" class="col-sm-5">
         <div class="card">
             <img class="card-img-top" src="assets/images/corn.jpeg" alt="Card image cap">
     
             <div class="card-body">
-                <h5 class="card-title">{{pizza.name}}</h5>
-                <p class="card-text">{{pizza.total_price |currency:"GBP"}}</p>
-                <a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
+                <h5 class="card-title">{{pizza.product_name}}</h5>
+<p class="card-text"><del>{{pizza.total_price| currency:"GBP"}}</del>{{ pizza.discounted_price
+    |currency:"GBP"}}</p>                
+    <a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
             </div>
         </div>
     </div>    
-    <div *ngIf="pizza.id ===1" class="col-sm-5">
+    <div *ngIf="pizza.product_id ===1" class="col-sm-5">
         <div class="card">
             <img class="card-img-top" src="assets/images/corn.jpeg" alt="Card image cap">
     
             <div class="card-body">
-                <h5 class="card-title">{{pizza.name}}</h5>
-                <p class="card-text">{{pizza.total_price |currency:"GBP"}}</p>
-                <a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
+                <h5 class="card-title">{{pizza.product_name}}</h5>
+<p class="card-text"><del>{{pizza.total_price| currency:"GBP"}}</del>{{ pizza.discounted_price
+    |currency:"GBP"}}</p>                
+    <a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
             </div>
         </div>
     </div>
-    <div *ngIf="pizza.id === 5" class="col-sm-5">
+    <div *ngIf="pizza.product_id === 5" class="col-sm-5">
         <div class="card">
             <img class="card-img-top" src="assets\images\meatLovers.jpg" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">{{pizza.name}}</h5>
-                <p class="card-text">{{pizza.total_price |currency:"GBP"}}</p>
-                <a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
+                <h5 class="card-title">{{pizza.product_name}}</h5>
+<p class="card-text"><del>{{pizza.total_price| currency:"GBP"}}</del>{{ pizza.discounted_price
+    |currency:"GBP"}}</p>               
+     <a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
             </div>
         </div>
     </div>
-    <div *ngIf="pizza.id === 5" class="col-sm-5">
+    <div *ngIf="pizza.product_id === 5" class="col-sm-5">
         <div class="card">
             <img class="card-img-top" src="assets\images\meatLovers.jpg" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">{{pizza.name}}</h5>
-                <p class="card-text">{{pizza.total_price |currency:"GBP"}}</p>
-                <a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
+                <h5 class="card-title">{{pizza.product_name}}</h5>
+<p class="card-text"><del>{{pizza.total_price| currency:"GBP"}}</del>{{ pizza.discounted_price    |currency:"GBP"}}</p>                
+    <a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
             </div>
         </div>
     </div>
-    <div *ngIf="pizza.id === 3" class="col-sm-5">
+    <div *ngIf="pizza.product_id === 3" class="col-sm-5">
         <div class="card">
             <img class="card-img-top" src="assets/images/vegpizza.jpg" alt="Card image cap">
     
             <div class="card-body">
-                <h5 class="card-title">{{pizza.name}}</h5>
-                <p class="card-text">{{pizza.total_price |currency:"GBP"}}</p>
-                <a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
+                <h5 class="card-title">{{pizza.product_name}}</h5>
+<p class="card-text"><del>{{pizza.total_price| currency:"GBP"}}</del>{{ pizza.discounted_price    |currency:"GBP"}}</p>                
+<a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
             </div>
         </div>
     </div>
-    <div *ngIf="pizza.id === 3" class="col-sm-5">
+    <div *ngIf="pizza.product_id === 3" class="col-sm-5">
         <div class="card">
             <img class="card-img-top" src="assets/images/vegpizza.jpg" alt="Card image cap">
     
             <div class="card-body">
-                <h5 class="card-title">{{pizza.name}}</h5>
-                <p class="card-text">{{pizza.total_price |currency:"GBP"}}</p>
-                <a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
+                <h5 class="card-title">{{pizza.product_name}}</h5>
+<p class="card-text"><del>{{pizza.total_price| currency:"GBP"}}</del>{{ pizza.discounted_price |currency:"GBP"}}</p>                
+    <a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
             </div>
         </div>
     </div>
-    <div *ngIf="pizza.id === 4" class="col-sm-5">
+    <div *ngIf="pizza.product_id === 4" class="col-sm-5">
         <div class="card">
             <img class="card-img-top" src="assets\images\peperoni.jpg" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">{{pizza.name}}</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
+                <h5 class="card-title">{{pizza.product_name}}</h5>
+<p class="card-text"><del>{{pizza.total_price| currency:"GBP"}}</del>{{ pizza.discounted_price |currency:"GBP"}}</p>                
+    <a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
             </div>
         </div>
     </div>
-    <div *ngIf="pizza.id === 4" class="col-sm-5">
+    <div *ngIf="pizza.product_id === 4" class="col-sm-5">
         <div class="card">
             <img class="card-img-top" src="assets\images\peperoni.jpg" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">{{pizza.name}}</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <h5 class="card-title">{{pizza.product_name}}</h5>
+<p class="card-text"><del>{{pizza.total_price| currency:"GBP"}}</del>{{ pizza.discounted_price
+    |currency:"GBP"}}</p>
+                    <a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="pizza.product_id === 2" class="col-sm-5">
+        <div class="card">
+            <img class="card-img-top" src="assets\images\cheese.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{pizza.product_name}}</h5>
+                <!-- <del *ngIf="pizza.status === 'live'">{{pizza.total_price}}</del> -->
+<p class="card-text"><del>{{pizza.total_price| currency:"GBP"}}</del>{{ pizza.discounted_price
+    |currency:"GBP"}}</p>              
+      <a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="pizza.product_id === 2" class="col-sm-5">
+        <div class="card">
+            <img class="card-img-top" src="assets\images\cheese.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{pizza.product_name}}</h5>
+<p class="card-text"><del>{{pizza.total_price| currency:"GBP"}}</del>{{ pizza.discounted_price
+    |currency:"GBP"}}</p>               
+     <a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
+            </div>
+        </div>
+    </div>
+    
+<!--del if doesnt  work-->
+    <div *ngIf="pizza.product_id ===6 " class="col-sm-5">
+        <div class="card">
+            <img class="card-img-top" src="assets\images\peperoni.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{pizza.product_name}}</h5>
+                <!-- <del *ngIf="pizza.status === 'live'">{{pizza.total_price}}</del> -->
+                <p class="card-text"><del ngIf="pizza.status === 'live'">{{pizza.total_price| currency:"GBP"}}</del>{{ pizza.discounted_price
+                    |currency:"GBP"}}</p>
                 <a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
             </div>
         </div>
     </div>
-    <div *ngIf="pizza.id === 2" class="col-sm-5">
+    <div *ngIf="pizza.product_id ===6 " class="col-sm-5">
         <div class="card">
-            <img class="card-img-top" src="assets\images\cheese.jpg" alt="Card image cap">
+            <img class="card-img-top" src="assets\images\peperoni.jpg" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">{{pizza.name}}</h5>
-                <p class="card-text">{{pizza.total_price |currency:"GBP"}}</p>
+                <h5 class="card-title">{{pizza.product_name}}</h5>
+                <!-- <del *ngIf="pizza.status === 'live'">{{pizza.total_price}}</del> -->
+                <p class="card-text"><del>{{pizza.total_price| currency:"GBP"}}</del>{{ pizza.discounted_price
+                    |currency:"GBP"}}</p>
                 <a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
             </div>
         </div>
     </div>
-    <div *ngIf="pizza.id === 2" class="col-sm-5">
+    <div *ngIf="pizza.product_id ===6 " class="col-sm-5">
         <div class="card">
-            <img class="card-img-top" src="assets\images\cheese.jpg" alt="Card image cap">
+            <img class="card-img-top" src="assets\images\peperoni.jpg" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">{{pizza.name}}</h5>
-                <p class="card-text">{{pizza.total_price | currency:"GBP"}}</p>
+                <h5 class="card-title">{{pizza.product_name}}</h5>
+                <!-- <del *ngIf="pizza.status === 'live'">{{pizza.total_price}}</del> -->
+                <p class="card-text"><del>{{pizza.total_price| currency:"GBP"}}</del>{{ pizza.discounted_price
+                    |currency:"GBP"}}</p>
                 <a (click)="addToCart(pizza)" [routerLink]="['/cart']" class="btn btn-primary">Add to cart</a>
             </div>
         </div>

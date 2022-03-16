@@ -18,7 +18,8 @@ import { Pizza } from '../pizzas/pizza.model';
 export class PostService {
 
   http: HttpClient
-   url: string ="http://localhost:3000/api/v1/filter/pizza"; 
+   url: string ="http://localhost:4000/api/v1/auth/pizza"; 
+   discountPriceUrl: string ="http://localhost:4000/api/v1/auth/discountedpizzaprice";
   private pizzasUpdated = new Subject<Pizza[]>();
   messageService: any;
   
@@ -45,6 +46,14 @@ private pizzas: Pizza[] = [];
     //                 );
                    // x.subscribe((response) => {console.log(response.json()); }
 
+  }
+  
+  public getDiscountedPizzaPrice(){
+    let pizzaDetailsObservable: Observable<Pizza[]>;
+
+    pizzaDetailsObservable = this.http.get<Pizza[]>(this.discountPriceUrl);
+    
+    return pizzaDetailsObservable;    
   }
 
   getPizzaUpdateListener(){

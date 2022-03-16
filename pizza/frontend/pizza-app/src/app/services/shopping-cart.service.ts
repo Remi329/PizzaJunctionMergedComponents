@@ -27,7 +27,7 @@ export class ShoppingCartService {
     //console.log(product)
     let order = <Pizza>items
     const duplicate = this.cart.find((i)=>{
-      return i.id === order.id;
+      return i.id === order.product_id;
     })
     if (duplicate === undefined) {
       this.cart.push(order);
